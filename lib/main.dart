@@ -28,11 +28,15 @@ class MyApp extends StatelessWidget {
               ),
             ),
       ),
-      initialRoute: '/',  // default
+      initialRoute: '/',
+      // default
       routes: {
         CategoriesScreen.routeName: (ctx) => CategoriesScreen(),
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+      },
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(builder: (ctx) => CategoriesScreen());
       },
     );
   }
