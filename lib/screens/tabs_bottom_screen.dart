@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/screens/categories_screen.dart';
 import 'package:meals_app/screens/favorites_screen.dart';
+import 'package:meals_app/widgets/main_drawer.dart';
 
 class TabsBottomScreen extends StatefulWidget {
   @override
@@ -9,8 +10,8 @@ class TabsBottomScreen extends StatefulWidget {
 
 class _TabsBottomScreenState extends State<TabsBottomScreen> {
   final List<Map<String, Object>> _pages = [
-    { 'page': CategoriesScreen(), 'title': 'Categories' },
-    { 'page': FavoritesScreen(), 'title': 'Favorites' },
+    {'page': CategoriesScreen(), 'title': 'Categories'},
+    {'page': FavoritesScreen(), 'title': 'Favorites'},
   ];
   int _selectedPageIndex = 0;
 
@@ -27,6 +28,7 @@ class _TabsBottomScreenState extends State<TabsBottomScreen> {
         title: Text(_pages[_selectedPageIndex]['title']),
       ),
       body: _pages[_selectedPageIndex]['page'],
+      drawer: MainDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: Colors.white,
         selectedItemColor: Theme.of(context).accentColor,
